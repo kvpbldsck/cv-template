@@ -1,0 +1,78 @@
+:root {
+    --font-size: 12pt;
+}
+
+a {
+    color: var(--color-main);
+}
+
+.cv-block {
+    clear: both;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    break-before: auto;
+    page-break-before: auto;
+}
+
+*:not(.cv-block) {
+    page-break-before: avoid;
+    break-before: avoid;
+}
+
+.cv-block__summary {
+    line-height: 1.35rem;
+}
+
+.introduction {
+    grid-template-columns: 6fr 5fr;
+    grid-template-areas:
+        ". picture"
+        ". picture"
+        ". .";
+}
+
+.introduction__summary {
+    line-height: 1.35rem;
+}
+
+.introduction__facts-list {
+    grid-column: 1 / span 2;
+    grid-template-columns: auto 1fr;
+    grid-row-gap: .25rem;
+}
+
+.introduction__picture {
+    max-width: 600pt;
+}
+
+.services__service-icon {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--color-main);
+}
+.skills__main-list {
+    grid-template-columns: repeat(2, auto);
+}
+
+.skills__main-skill {
+    grid-template-columns: auto 1fr;
+    column-gap: .75rem;
+}
+
+.skills__secondary-skill-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.experience-card {
+    min-width: 200pt;
+}
+
+.experience-card__description {
+    line-height: 1.35rem;
+}
+
+.navigation,
+.footer {
+    display: none;
+}

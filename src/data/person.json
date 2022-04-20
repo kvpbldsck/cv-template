@@ -1,0 +1,89 @@
+{
+    "name": "Valerij",
+    "long_name": "Zakharenko Valerij",
+    "position": "Web developer",
+    "summary": "I am passionate about programming at all and especially about web programming. I am a skilled back-end developer with some experience in front-end. I am meticulous about cleanliness of the code. I am a quick learner and a team worker that gets the job done. Dreaming about project in field of music to combine both my most biggest interests.",
+    "date_of_birth": "1970-01-01",
+    "links": [
+        {
+            "name": "Github",
+            "value": "https://github.com/ikonvpalto",
+            "display": "https://github.com/ikonvpalto"
+        }
+    ],
+    "facts": [
+        {
+            "name": "Main stack",
+            "value": "ASP.NET Core web app with docker support"
+        }
+    ],
+    "available": true,
+    "need_relocation": true,
+    "services": {
+        "summary": "As a programmer, I offer high quality website development services in any field, as a solo programmer or in a team.",
+        "items": [ "Back-end development", "Front-end development", "Any other development", "Code review" ]
+    },
+    "skills": {
+        "summary": "I am a quick learner and specialize in multitude of technologies required for Web Application Development",
+        "main": [
+            {
+                "name": "C#",
+                "percentage": 80
+            },
+            {
+                "name": "SQL",
+                "percentage": 60
+            },
+            {
+                "name": "ASP.NET Core",
+                "percentage": 70
+            },
+            {
+                "name": "JavaScript",
+                "percentage": 50
+            }
+        ],
+        "secondary": [ "Docker", "PowerShell", "Vue.js", "React.js", "Node.js", "bash", "PostgreSQL", "RabbitMQ" ]
+    },
+    "experiences": [
+        {
+            "position": "Fullstack developer",
+            "company": "Company",
+            "start": "2020-01-01",
+            "end": "2022-01-01",
+            "description": "I took part in developing of three web applications: <a href=\"https://google.com\" target=\"blank\">google website</a>, other cool site for real estate. One of them created as ASP.NET Core web API with SPA front-end on the React.js, other one - monolith ASP.NET Core apps with Razor pages and Vue.js front-end.",
+            "technologies": [ "C#", "PostgreSQL", "JavaScript", "Vue.js", "React.js" ]
+        },
+        {
+            "position": "Fullstack developer",
+            "company": "Other company",
+            "start": "2022-01-02",
+            "description": "I took part in developing of three web applications: <a href=\"https://google.com\" target=\"blank\">google website</a>, other cool site for real estate. One of them created as ASP.NET Core web API with SPA front-end on the React.js, other one - monolith ASP.NET Core apps with Razor pages and Vue.js front-end.",
+            "technologies": [ "C#", "PostgreSQL", "JavaScript", "Vue.js", "React.js" ]
+        }
+    ],
+    "testimonials": [
+        {
+            "title": "John Doe",
+            "position": "Full-stack developer at Google",
+            "links": [
+                {
+                    "name": "Email",
+                    "value": "mailto: konvpalto87@gmail.com",
+                    "display": "konvpalto87@gmail.com"
+                }
+            ]
+        },
+        {
+            "title": "Ivanov Ivan",
+            "position": "Back-end team lead at Facebook",
+            "links": [
+                {
+                    "name": "Email",
+                    "value": "mailto: konvpalto87@gmail.com",
+                    "display": "konvpalto87@gmail.com"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+.page__body {
+    max-width: 1024px;
+    margin: 0 auto 1.25rem;
+}
+
+@media (max-width: 1064px) {
+    .page__body {
+        margin: 0 1.25rem 1.25rem;
+    }
+}

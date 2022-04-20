@@ -1,0 +1,189 @@
+---
+    permalink: index.html
+    layout: page.njk
+    sections:
+        - introduction
+        - services
+        - skills
+        - experience
+        - testimonials
+---
+
+<nav class="navigation">
+    <a class="navigation__item navigation__item--main navigation__link" href="/" tabindex="0">{{person.name}}'s CV</a>
+
+    <button class="button navigation__toggler dropdown" aria-label="Open navigation menu">
+        {{ '/src/icons/burger.svg' | svgContents('navigation__toggler-icon burger-icon') | safe }}
+    </button>
+
+    <div class="dropdown__menu navigation__menu">
+        <ul class="list--clean navigation__list">
+            {% for section in sections %}
+                <li class="navigation__item dropdown__item">
+                    <a class="navigation__link" href="#{{section}}" tabindex="0">{{ section | capitalize }}</a>
+                </li>
+            {% endfor %}
+
+            <li class="navigation__item navigation__item--right-attached dropdown__item">
+                <a class="navigation__link" href="cv.pdf" tabindex="0" target="_blank">PDF version</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<main class="cv page__body">
+
+    <section class="cv-block cv-block--navigable introduction" id="introduction" aria-label="Introduction">
+        <h1 class="introduction__title">Hello! I'm {{ person.long_name }}</h1>
+
+        <img class="introduction__picture"
+             src="images/{{person.name}}_480.jpg"
+             srcset="images/{{person.name}}_480.jpg
+                     images/{{person.name}}_720.jpg 1.5x
+                     images/{{person.name}}_960.jpg 2x"
+             alt="{{ person.long_name }}">
+
+        <p class="introduction__summary">{{ person.summary }}</p>
+        <div class="introduction__facts-list">
+            {% for link in person.links %}
+                <span>{{ link.name }}:</span>
+                <b><a href="{{link.value}}" class="link">{{ link.display }} </a></b>
+            {% endfor %}
+
+            {% for fact in person.facts %}
+                <span>{{ fact.name }}:</span>
+                <b> {{ fact.value }}</b>
+            {% endfor %}
+
+            <span>Age:</span> <b>{{ person.date_of_birth | passedYears }}</b>
+            <span>Working:</span> <b>{{ person.experiences | totalWorkingPeriod }}</b>
+
+            <span>Status:</span>
+            <b>
+                {% if person.available and person.need_relocation %}
+                    Looking for a new job with relocation
+                {% elif person.available %}
+                    Looking for a new job
+                {% else %}
+                    Have job
+                {% endif %}
+            </b>
+        </div>
+    </section>
+
+    <section class="cv-block cv-block--navigable services" id="services" aria-label="Services">
+        <h2 class="cv-block__title services__title">My services</h2>
+        <p class="cv-block__summary services__summary">{{ person.services.summary }}</p>
+        <ul class="services__list">
+            {% for service in person.services.items %}
+                <li class="services__service">
+                    {{ service }}
+                    {{ ('/src/icons/' + icons_mapping[service]) | svgContents('services__service-icon') | safe }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="cv-block cv-block--navigable skills" id="skills" aria-label="Skills">
+        <h2 class="cv-block__title skills__title">My skills</h2>
+        <p class="cv-block__summary skills__summary">{{ person.skills.summary }}</p>
+        <ul class="skills__main-list">
+            {% for skill in person.skills.main %}
+                <li class="skills__main-skill">
+                    <span class="skills__main-skill-name">{{ skill.name }}</span>
+                    <span class="skills__main-skill-percentage">{{ skill.percentage }}%</span>
+                    <div class="progress-bar">
+                        <div class="progress-bar__progress" style="width:{{ skill.percentage }}%"></div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <h3 class="skills__secondary-title">Also I have some experience with</h3>
+        <ul class="skills__secondary-list">
+            {% for skill in person.skills.secondary %}
+                <li class="skills__secondary-skill">
+                    <span>{{ skill }}</span>
+                    {{ ('/src/icons/' + icons_mapping[skill]) | svgContents('skills__secondary-skill-icon') | safe }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="cv-block cv-block--navigable experiences" id="experience" aria-label="Experience">
+        <h2 class="cv-block__title experiences__title">My experience</h2>
+
+        {% for experience in person.experiences %}
+        <div class="experience-card">
+            <div class="experience-card__header">
+                <h3 class="experience-card__position">{{ experience.position }}</h3>
+                <p class="experience-card__company">
+                    {{ experience.company }}
+                    ({{ experience | workingPeriod }})
+                </p>
+            </div>
+
+            <div class="experience-card__body">
+                <p class="experience-card__description">{{ experience.description | safe }}</p>
+
+                <ul class="experience-card__technologies-list" aria-label="Used technologies list">
+                    {% for technology in experience.technologies %}
+                        <li class="experience-card__technology" aria-label="{{technology}}" title="{{technology}}">
+                            {{ ('/src/icons/' + icons_mapping[technology]) | svgContents('experience-card__technology-icon') | safe }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    {% if person.available %}
+        <section class="cv-block cv-block--navigable testimonials" id="testimonials" aria-label="Testimonials">
+            <h2 class="cv-block__title testimonials__title">Testimonials</h2>
+            <p class="cv-block__summary testimonials__summary">
+                Feel free to contact anyone from this list of my former colleagues to get testimonial about me as a developer and team member
+            </p>
+
+            <ul class="testimonials__list">
+            {% for testimonial in person.testimonials %}
+                <li class="testimonial__person">
+                    <h3 class="testimonial__person-title">{{ testimonial.title }}</h3>
+                    <span class="testimonial__person-position">{{ testimonial.position }}</span>
+                    <div class="testimonial__person-links">
+                        {% for link in testimonial.links %}
+                            <span>{{ link.name }}:</span>
+                            <b><a href="{{link.value}}" class="link">{{ link.display }} </a></b>
+                        {% endfor %}
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+</main>
+
+<footer class="footer">
+    <h4 class="footer__title">{{person.long_name}}</h4>
+    <p class="footer__summary">CV for {{person.position}} position</p>
+    <ul class="footer__links list--clean">
+        {% for link in person.links %}
+            <li>
+                <a href="{{link.value}}" class="link footer__link" aria-label="{{link.name}}" title="{{link.name}}">
+                    {{ ('/src/icons/' + icons_mapping[link.name]) | svgContents('footer__link-icon') | safe }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a class="footer__source-link" href="https://github.com/ikonvpalto/cv-template">
+        Source code
+    </a>
+</footer>
+
+<noscript>
+    <style>
+        .navigation__toggler {
+            display: none;
+        }
+    </style>
+</noscript>

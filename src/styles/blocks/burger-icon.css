@@ -1,0 +1,36 @@
+.burger-icon {
+    stroke: var(--color-main);
+    fill: none;
+}
+
+.burger-icon__line {
+    transition: stroke-dasharray var(--animation-speed-normal) cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset var(--animation-speed-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.burger-icon__line--first {
+    stroke-dasharray: 60 207;
+}
+
+.burger-icon__line--second {
+    stroke-dasharray: 60 60;
+}
+
+.burger-icon__line--third {
+    stroke-dasharray: 60 207;
+}
+
+.burger-icon--opened .burger-icon__line--first {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+}
+
+.burger-icon--opened .burger-icon__line--second {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+}
+
+.burger-icon--opened .burger-icon__line--third {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+}

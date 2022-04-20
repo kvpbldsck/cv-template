@@ -1,0 +1,38 @@
+.services {
+    align-items: center;
+}
+
+.services__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    gap: var(--gap-half-col);
+    row-gap: 1rem;
+}
+
+.services__service {
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: .75rem;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 0;
+    justify-content: flex-end;
+}
+
+.services__service-icon {
+    width: 6rem;
+    height: 6rem;
+    fill: var(--color-main);
+}
+
+@media (max-width: 768px) {
+    .services__service-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+}

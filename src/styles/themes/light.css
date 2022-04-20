@@ -1,0 +1,8 @@
+:root {
+    --color-background: #ffffff;
+    --color-background-accent: #e9ecef;
+    --color-main: #212529;
+    --color-main-muted: #212529d0;
+    --color-accent: #f2bb05;
+    --shadow-color: rgba(33, 37, 41, .075);
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% set title %} {{ person.long_name }}'s CV {% endset %}
+<html class="page" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        {{ title }}
+    </title>
+
+    <meta name="robots" content="noindex">
+
+    <meta name="description" content="{{ title }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:site_name" content="{{ title }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ title }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/themes/dark.css" media="only screen and (prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/styles/themes/print.css" media="print">
+
+</head>
+<body>
+{{ content | safe }}
+<script src="/scripts/scripts.js"></script>
+</body>
+</html>

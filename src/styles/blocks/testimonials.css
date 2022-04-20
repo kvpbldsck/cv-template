@@ -1,0 +1,17 @@
+.testimonials__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.testimonial__person {
+    min-width: 300px;
+    width: 40%;
+    flex: 1 1 0;
+}
+
+.testimonial__person-title {
+    margin: 0;
+}

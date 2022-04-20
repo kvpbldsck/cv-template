@@ -1,0 +1,23 @@
+{
+    "Back-end development": "code.svg",
+    "Front-end development": "laptop-code.svg",
+    "Any other development": "stack-overflow.svg",
+    "Code review": "pull-request.svg",
+    "Kotlin": "kotlin.svg",
+    "C#": "c-sharp.svg",
+    "Android": "android.svg",
+    "Docker": "docker.svg",
+    "PowerShell": "powershell.svg",
+    "Vue.js": "vue-js.svg",
+    "React.js": "react.svg",
+    "Node.js": "node-js.svg",
+    "PostgreSQL": "postgresql.svg",
+    "JavaScript": "js.svg",
+    "React": "react.svg",
+    "MongoDB": "mongodb.svg",
+    "RabbitMQ": "rabbitmq.svg",
+    "bash": "gnubash.svg",
+    "Email": "email.svg",
+    "LinkedIn": "linkedin-alt.svg",
+    "Github": "github.svg"
+}

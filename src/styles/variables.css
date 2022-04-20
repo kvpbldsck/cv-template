@@ -1,0 +1,11 @@
+:root {
+    --font-size: 18px;
+
+    --gap-1-col: calc(100% / 12);
+    --gap-half-col: calc(var(--gap-1-col) / 2);
+
+    --animation-speed-normal: 0.4s;
+
+    /* device s: 768px */
+    /* devise m: 1024px */
+}

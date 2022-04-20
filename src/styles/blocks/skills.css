@@ -1,0 +1,74 @@
+.skills {
+    align-items: center;
+}
+
+.skills__main-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: var(--gap-1-col);
+    width: 100%;
+    justify-items: center;
+    column-gap: 4rem;
+    row-gap: 1rem;
+}
+
+.skills__main-skill {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    grid-template-areas:
+        ". ."
+        "progress progress";
+    row-gap: .5rem;
+}
+
+.skills__main-skill-name {
+    text-align: start;
+}
+
+.skills__main-skill-percentage {
+    text-align: end;
+}
+
+.skills__main-skill > .progress-bar {
+    grid-area: progress;
+}
+
+.skills__secondary-title {
+    text-align: center;
+}
+
+.skills__secondary-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    gap: 1.25rem;
+}
+
+.skills__secondary-skill {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: .5rem;
+    align-items: center;
+}
+
+.skills__secondary-skill-icon {
+    width: 3rem;
+    height: 3rem;
+    fill: var(--color-main);
+}
+
+@media (max-width: 768px) {
+    .skills__main-list {
+        grid-template-columns: 1fr;
+    }
+}
