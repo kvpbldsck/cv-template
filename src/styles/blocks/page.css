@@ -1,10 +1,20 @@
 .page__body {
-    max-width: 1024px;
-    margin: 0 auto 1.25rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    background: var(--color-background-transparent);
+    backdrop-filter: blur(14px);
 }
 
-@media (max-width: 1064px) {
+@media (max-width: 70.5rem) {
     .page__body {
         margin: 0 1.25rem 1.25rem;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 30rem) {
+    .page__body {
+        padding: 2rem 0;
     }
 }

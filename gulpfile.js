@@ -32,7 +32,7 @@ gulp.task('styles:inline', () => {
 // Scripts
 
 gulp.task('scripts:compress', () => {
-    return gulp.src('src/scripts/scripts.js')
+    return gulp.src('src/scripts/*.js')
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
@@ -43,9 +43,10 @@ gulp.task('scripts:compress', () => {
 gulp.task('scripts:inline', () => {
     return gulp.src('dist/**/*.html')
         .pipe(replace(
-            /<script src="\/scripts\/scripts.js"><\/script>/, () => {
-                const style = fs.readFileSync('dist/scripts.js', 'utf8');
-                return '<script>' + style + '</script>';
+            /<script src="\/scripts\/(.+?).js"><\/script>/,
+            (match, p1) => {
+                const style = fs.readFileSync(`dist/${p1}.js`, 'utf8');
+                return `<script>${style}</script>`;
             }
         ))
         .pipe(gulp.dest('dist'));

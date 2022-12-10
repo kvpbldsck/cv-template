@@ -10,24 +10,26 @@
 ---
 
 <nav class="navigation">
-    <a class="navigation__item navigation__item--main navigation__link" href="/" tabindex="0">{{person.name}}'s CV</a>
+    <div class="navigation__content">
+        <a class="navigation__item navigation__item--main navigation__link" href="/" tabindex="0">{{person.name}}'s CV</a>
 
-    <button class="button navigation__toggler dropdown" aria-label="Open navigation menu">
-        {{ '/src/icons/burger.svg' | svgContents('navigation__toggler-icon burger-icon') | safe }}
-    </button>
+        <button class="button navigation__toggler dropdown" aria-label="Open navigation menu">
+            {{ '/src/icons/burger.svg' | svgContents('navigation__toggler-icon burger-icon') | safe }}
+        </button>
 
-    <div class="dropdown__menu navigation__menu">
-        <ul class="list--clean navigation__list">
-            {% for section in sections %}
+        <div class="dropdown__menu navigation__menu">
+            <ul class="list--clean navigation__list">
+                {% for section in sections %}
+                    <li class="navigation__item dropdown__item">
+                        <a class="navigation__link" href="#{{section}}" tabindex="0">{{ section | capitalize }}</a>
+                    </li>
+                {% endfor %}
+
                 <li class="navigation__item dropdown__item">
-                    <a class="navigation__link" href="#{{section}}" tabindex="0">{{ section | capitalize }}</a>
+                    <a class="navigation__link" href="cv.pdf" tabindex="0" target="_blank">PDF version</a>
                 </li>
-            {% endfor %}
-
-            <li class="navigation__item navigation__item--right-attached dropdown__item">
-                <a class="navigation__link" href="cv.pdf" tabindex="0" target="_blank">PDF version</a>
-            </li>
-        </ul>
+            </ul>
+        </div>
     </div>
 
 </nav>
@@ -175,7 +177,7 @@
             </li>
         {% endfor %}
     </ul>
-    <a class="footer__source-link" href="https://github.com/ikonvpalto/cv-template">
+    <a class="footer__source-link" href="https://github.com/ikonvpalto/cv-template" target="_blank">
         Source code
     </a>
 </footer>

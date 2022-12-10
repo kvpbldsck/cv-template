@@ -39,7 +39,7 @@
 
 @media (max-width: 768px) {
     .cv-block--navigable {
-        padding-top: 3rem; /* aprox. height of navbar plus some gap */
-        margin-top: -2rem;
+        padding-top: 4rem; /* aprox. height of navbar plus some gap */
+        margin-top: -3rem;
     }
 }

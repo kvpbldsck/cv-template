@@ -31,4 +31,57 @@ function setupMobileNavbar() {
         .forEach(i => i.addEventListener(CLICK_EVENT, toggleNavigationOnMobile));
 }
 
+function initParticles() {
+    Particles.init({
+        selector: '#particles-canvas',
+        // color: ["#000000"],
+        color: ["#f2bb05", "#e9ecef"],
+        maxParticles: getMaxParticles(),
+        connectParticles: true,
+        // sizeVariations: 5,
+        // minDistance: 60,
+        lineCap: "rounded",
+        lineWidth: 2,
+        // speed: 0,
+        responsive: [
+            {
+                breakpoint:1200,
+                options: {
+                    maxParticles:0,
+                }
+            },
+            {
+                breakpoint:1920,
+                options: {
+                    maxParticles:300,
+                }
+            },
+            {
+                breakpoint:2400,
+                options: {
+                    maxParticles:450,
+                }
+            },
+            {
+                breakpoint:3000,
+                options: {
+                    maxParticles:600,
+                }
+            },
+            {
+                breakpoint:4000,
+                options: {
+                    maxParticles:750,
+                }
+            },
+        ]
+    });
+}
+
+function getMaxParticles() {
+    console.log(window.innerWidth, " ", window.innerHeight);
+    return parseInt(300 * window.innerWidth * window.innerWidth * window.innerHeight * window.innerHeight / 1920 / 1920 / 919 / 919);
+}
+
 document.addEventListener(LOAD_EVENT, setupMobileNavbar);
+document.addEventListener(LOAD_EVENT, initParticles);

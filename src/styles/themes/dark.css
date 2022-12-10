@@ -1,8 +1,11 @@
 :root {
     --color-background: #212529;
+    --color-background-transparent: #212529ff;
     --color-background-accent: #3d4044;
     --color-main: #fbfef9;
     --color-main-muted: #fbfef9d0;
     --color-accent: #f2bb05;
+    --color-header-bg: #212529;
+    --color-header: #fbfef9;
     --shadow-color: rgba(251, 254, 249, .075);
 }
