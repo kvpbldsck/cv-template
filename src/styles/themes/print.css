@@ -50,16 +50,16 @@ a {
     height: 3rem;
     fill: var(--color-main);
 }
-.skills__main-list {
+.technologies__main-list {
     grid-template-columns: repeat(2, auto);
 }
 
-.skills__main-skill {
+.technologies__main-skill {
     grid-template-columns: auto 1fr;
     column-gap: .75rem;
 }
 
-.skills__secondary-skill-icon {
+.technologies__secondary-skill-icon {
     width: 2rem;
     height: 2rem;
 }

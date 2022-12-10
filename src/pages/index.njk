@@ -4,7 +4,7 @@
     sections:
         - introduction
         - services
-        - skills
+        - technologies
         - experience
         - testimonials
 ---
@@ -87,26 +87,26 @@
         </ul>
     </section>
 
-    <section class="cv-block cv-block--navigable skills" id="skills" aria-label="Skills">
-        <h2 class="cv-block__title skills__title">My skills</h2>
-        <p class="cv-block__summary skills__summary">{{ person.skills.summary }}</p>
-        <ul class="skills__main-list">
-            {% for skill in person.skills.main %}
-                <li class="skills__main-skill">
-                    <span class="skills__main-skill-name">{{ skill.name }}</span>
-                    <span class="skills__main-skill-percentage">{{ skill.percentage }}%</span>
+    <section class="cv-block cv-block--navigable technologies" id="technologies" aria-label="Technologies">
+        <h2 class="cv-block__title technologies__title">My technologies</h2>
+        <p class="cv-block__summary technologies__summary">{{ person.technologies.summary }}</p>
+        <ul class="technologies__main-list">
+            {% for skill in person.technologies.main %}
+                <li class="technologies__main-skill">
+                    <span class="technologies__main-skill-name">{{ skill.name }}</span>
+                    <span class="technologies__main-skill-percentage">{{ skill.percentage }}%</span>
                     <div class="progress-bar">
                         <div class="progress-bar__progress" style="width:{{ skill.percentage }}%"></div>
                     </div>
                 </li>
             {% endfor %}
         </ul>
-        <h3 class="skills__secondary-title">Also I have some experience with</h3>
-        <ul class="skills__secondary-list">
-            {% for skill in person.skills.secondary %}
-                <li class="skills__secondary-skill">
+        <h3 class="technologies__secondary-title">Also I have some experience with</h3>
+        <ul class="technologies__secondary-list">
+            {% for skill in person.technologies.secondary %}
+                <li class="technologies__secondary-skill">
                     <span>{{ skill }}</span>
-                    {{ ('/src/icons/' + icons_mapping[skill]) | svgContents('skills__secondary-skill-icon') | safe }}
+                    {{ ('/src/icons/' + icons_mapping[skill]) | svgContents('technologies__secondary-skill-icon') | safe }}
                 </li>
             {% endfor %}
         </ul>

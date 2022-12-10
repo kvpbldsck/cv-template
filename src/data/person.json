@@ -23,27 +23,31 @@
         "summary": "As a programmer, I offer high quality website development services in any field, as a solo programmer or in a team.",
         "items": [ "Back-end development", "Front-end development", "Any other development", "Code review" ]
     },
-    "skills": {
-        "summary": "I am a quick learner and specialize in multitude of technologies required for Web Application Development",
+    "technologies": {
+        "summary": "Approximately percentage of how much I have used specific technology in my projects",
         "main": [
             {
                 "name": "C#",
+                "percentage": 100
+            },
+            {
+                "name": "Entity Framework Core",
                 "percentage": 80
             },
             {
-                "name": "SQL",
-                "percentage": 60
-            },
-            {
                 "name": "ASP.NET Core",
-                "percentage": 70
+                "percentage": 100
             },
             {
                 "name": "JavaScript",
-                "percentage": 50
+                "percentage": 30
+            },
+            {
+                "name": "Docker",
+                "percentage": 20
             }
         ],
-        "secondary": [ "Docker", "PowerShell", "Vue.js", "React.js", "Node.js", "bash", "PostgreSQL", "RabbitMQ" ]
+        "secondary": [ "PowerShell", "Vue.js", "React.js", "Node.js", "bash", "PostgreSQL", "RabbitMQ" ]
     },
     "experiences": [
         {

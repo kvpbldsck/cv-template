@@ -1,8 +1,8 @@
-.skills {
+.technologies {
     align-items: center;
 }
 
-.skills__main-list {
+.technologies__main-list {
     list-style: none;
     padding: 0;
     display: grid;
@@ -14,10 +14,10 @@
     row-gap: 1rem;
 }
 
-.skills__main-skill {
+.technologies__main-skill {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     align-items: center;
     text-align: center;
     grid-template-areas:
@@ -26,23 +26,23 @@
     row-gap: .5rem;
 }
 
-.skills__main-skill-name {
+.technologies__main-skill-name {
     text-align: start;
 }
 
-.skills__main-skill-percentage {
+.technologies__main-skill-percentage {
     text-align: end;
 }
 
-.skills__main-skill > .progress-bar {
+.technologies__main-skill > .progress-bar {
     grid-area: progress;
 }
 
-.skills__secondary-title {
+.technologies__secondary-title {
     text-align: center;
 }
 
-.skills__secondary-list {
+.technologies__secondary-list {
     list-style: none;
     padding: 0;
     display: flex;
@@ -53,7 +53,7 @@
     gap: 1.25rem;
 }
 
-.skills__secondary-skill {
+.technologies__secondary-skill {
     display: flex;
     flex-direction: column-reverse;
     text-align: center;
@@ -61,14 +61,14 @@
     align-items: center;
 }
 
-.skills__secondary-skill-icon {
+.technologies__secondary-skill-icon {
     width: 3rem;
     height: 3rem;
     fill: var(--color-main);
 }
 
 @media (max-width: 768px) {
-    .skills__main-list {
+    .technologies__main-list {
         grid-template-columns: 1fr;
     }
 }
