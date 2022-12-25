@@ -31,7 +31,7 @@
 
 .navigation__list {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     height: 100%;
     align-items: center;
 }

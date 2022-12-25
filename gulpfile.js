@@ -9,13 +9,13 @@ const uglify = require('gulp-uglify');
 // Styles
 
 gulp.task('styles:compress', () => {
-    return gulp.src('src/styles/styles.css')
+    return gulp.src('src/web_page/styles/styles.css')
         .pipe(postcss([
             require('postcss-import'),
-            require('autoprefixer'),
-            require('cssnano')
+            // require('autoprefixer'),
+            // require('cssnano')
         ]))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/styles/styles.css'));
 });
 
 gulp.task('styles:inline', () => {
@@ -32,12 +32,12 @@ gulp.task('styles:inline', () => {
 // Scripts
 
 gulp.task('scripts:compress', () => {
-    return gulp.src('src/scripts/*.js')
+    return gulp.src('src/web_page/scripts/*.js')
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
         .pipe(uglify())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/styles/:name.js'));
 });
 
 gulp.task('scripts:inline', () => {
@@ -68,8 +68,8 @@ gulp.task('clean', () => {
 
 gulp.task('build', gulp.series(
     'styles:compress',
-    'styles:inline',
-    'scripts:compress',
-    'scripts:inline',
-    'clean'
+    // 'styles:inline',
+    // 'scripts:compress',
+    // 'scripts:inline',
+    // 'clean'
 ));

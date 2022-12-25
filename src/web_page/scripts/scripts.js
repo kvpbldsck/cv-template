@@ -33,7 +33,7 @@ function setupMobileNavbar() {
 
 function initParticles() {
     Particles.init({
-        selector: '#particles-canvas',
+        selector: '.particles-canvas',
         // color: ["#000000"],
         color: ["#f2bb05", "#e9ecef"],
         maxParticles: getMaxParticles(),

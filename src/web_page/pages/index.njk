@@ -14,7 +14,7 @@
         <a class="navigation__item navigation__item--main navigation__link" href="/" tabindex="0">{{person.name}}'s CV</a>
 
         <button class="button navigation__toggler dropdown" aria-label="Open navigation menu">
-            {{ '/src/icons/burger.svg' | svgContents('navigation__toggler-icon burger-icon') | safe }}
+            {{ '/src/web_page/icons/burger.svg' | svgContents('navigation__toggler-icon burger-icon') | safe }}
         </button>
 
         <div class="dropdown__menu navigation__menu">
@@ -40,11 +40,12 @@
         <h1 class="introduction__title">Hello! I'm {{ person.long_name }}</h1>
 
         <img class="introduction__picture"
-             src="images/{{person.name}}_480.jpg"
-             srcset="images/{{person.name}}_480.jpg
-                     images/{{person.name}}_720.jpg 1.5x
-                     images/{{person.name}}_960.jpg 2x"
-             alt="{{ person.long_name }}">
+             src="images/avatar.jpg"
+             srcset="images/avatar.jpg
+                     images/avatar1.5x.jpg 1.5x
+                     images/avatar2x.jpg 2x
+                     images/avatar3x.jpg 3x"
+             alt="{{ person.long_name }}"/>
 
         <p class="introduction__summary">{{ person.summary }}</p>
         <div class="introduction__facts-list">
@@ -81,7 +82,7 @@
             {% for service in person.services.items %}
                 <li class="services__service">
                     {{ service }}
-                    {{ ('/src/icons/' + icons_mapping[service]) | svgContents('services__service-icon') | safe }}
+                    {{ ('/src/web_page/icons/' + icons_mapping[service]) | svgContents('services__service-icon') | safe }}
                 </li>
             {% endfor %}
         </ul>
@@ -106,7 +107,7 @@
             {% for skill in person.technologies.secondary %}
                 <li class="technologies__secondary-skill">
                     <span>{{ skill }}</span>
-                    {{ ('/src/icons/' + icons_mapping[skill]) | svgContents('technologies__secondary-skill-icon') | safe }}
+                    {{ ('/src/web_page/icons/' + icons_mapping[skill]) | svgContents('technologies__secondary-skill-icon') | safe }}
                 </li>
             {% endfor %}
         </ul>
@@ -131,7 +132,7 @@
                 <ul class="experience-card__technologies-list" aria-label="Used technologies list">
                     {% for technology in experience.technologies %}
                         <li class="experience-card__technology" aria-label="{{technology}}" title="{{technology}}">
-                            {{ ('/src/icons/' + icons_mapping[technology]) | svgContents('experience-card__technology-icon') | safe }}
+                            {{ ('/src/web_page/icons/' + icons_mapping[technology]) | svgContents('experience-card__technology-icon') | safe }}
                         </li>
                     {% endfor %}
                 </ul>
@@ -172,7 +173,7 @@
         {% for link in person.links %}
             <li>
                 <a href="{{link.value}}" class="link footer__link" aria-label="{{link.name}}" title="{{link.name}}">
-                    {{ ('/src/icons/' + icons_mapping[link.name]) | svgContents('footer__link-icon') | safe }}
+                    {{ ('/src/web_page/icons/' + icons_mapping[link.name]) | svgContents('footer__link-icon') | safe }}
                 </a>
             </li>
         {% endfor %}

@@ -1,3 +1,5 @@
+@import "dark.css";
+
 :root {
     --font-size: 12pt;
 }
@@ -74,5 +76,9 @@ a {
 
 .navigation,
 .footer {
+    display: none;
+}
+
+.particles-canvas {
     display: none;
 }

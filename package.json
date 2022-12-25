@@ -16,6 +16,7 @@
         "cssnano": "^5.1.7",
         "del": "^6.0.0",
         "eleventy-plugin-svg-contents": "^0.7.0",
+        "esm": "^3.2.25",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-postcss": "^9.0.1",
@@ -28,12 +29,14 @@
         "uglify-js": "^3.15.3"
     },
     "scripts": {
-        "start": "eleventy --serve --quiet --config .eleventy.js",
-        "debug": "set DEBUG=\"Eleventy*\" & eleventy --serve",
+        "start": "npm run prepare-resources && eleventy --serve --quiet --config .eleventy.js",
+        "start-prod": "npm run build && browser-sync start --port 8080 --server ./dist -f ./dist -w",
+        "debug": "set DEBUG=\"Eleventy*\" & eleventy --serve --config .eleventy.js",
+        "build": "npm run prepare-resources && npm run 11ty && npm run pack",
+        "prepare-resources": "npm run optimize-avatar && npm run optimize-svgs",
+        "optimize-avatar": "sh ./src/build_scripts/optimize-avatar.sh",
+        "optimize-svgs": "npx svgo --config svgo.config.js -r -f src/raw_resources/svgs -o ./src/web_page",
         "11ty": "eleventy --config .eleventy.js",
-        "svgo": "npx svgo --config svgo.config.js -r -f ./src/svgs -o ./src",
-        "pack": "gulp build",
-        "build": "npm run svgo && npm run 11ty && npm run pack",
-        "start-prod": "npm run build && browser-sync start --port 8080 --server ./dist -f ./dist -w"
+        "pack": "gulp build"
     }
 }
