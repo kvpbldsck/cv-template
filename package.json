@@ -10,7 +10,7 @@
     ],
     "devDependencies": {
         "@11ty/eleventy": "^1.0.0",
-        "@babel/core": "^7.17.8",
+        "@babel/core": "^7.22.9",
         "@babel/preset-env": "^7.16.11",
         "autoprefixer": "^10.4.4",
         "cssnano": "^5.1.7",
@@ -32,11 +32,12 @@
         "start": "npm run prepare-resources && eleventy --serve --quiet --config .eleventy.js",
         "start-prod": "npm run build && browser-sync start --port 8080 --server ./dist -f ./dist -w",
         "debug": "set DEBUG=\"Eleventy*\" & eleventy --serve --config .eleventy.js",
-        "build": "npm run prepare-resources && npm run 11ty && npm run pack",
+        "build": "npm run prepare-resources && npm run 11ty && npm run gulp",
         "prepare-resources": "npm run optimize-avatar && npm run optimize-svgs",
-        "optimize-avatar": "sh ./src/build_scripts/optimize-avatar.sh",
+        "optimize-avatar": "bash ./src/build_scripts/optimize-avatar.sh",
         "optimize-svgs": "npx svgo --config svgo.config.js -r -f src/raw_resources/svgs -o ./src/web_page",
         "11ty": "eleventy --config .eleventy.js",
-        "pack": "gulp build"
+        "pack": "gulp build",
+        "gulp": "gulp"
     }
 }

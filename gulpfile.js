@@ -1,75 +1,65 @@
-const babel = require('gulp-babel');
-const del = require('del');
-const fs = require('fs');
-const gulp = require('gulp');
-const postcss = require('gulp-postcss');
-const replace = require('gulp-replace');
-const uglify = require('gulp-uglify');
+const { src, dest, series } = require('gulp')
+const postcss = require("gulp-postcss");
+const replace = require("gulp-replace");
+const fs = require("fs");
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
+const del = require("del");
 
-// Styles
-
-gulp.task('styles:compress', () => {
-    return gulp.src('src/web_page/styles/styles.css')
+function compressStyles() {
+    return src('dist/styles/**/*.css')
         .pipe(postcss([
             require('postcss-import'),
-            // require('autoprefixer'),
-            // require('cssnano')
+            require('autoprefixer'),
+            require('cssnano')
         ]))
-        .pipe(gulp.dest('dist/styles/styles.css'));
-});
+        .pipe(dest('dist/styles/'));
+}
 
-gulp.task('styles:inline', () => {
-    return gulp.src('dist/**/*.html')
+function inlineStyles() {
+    return src('dist/**/*.html')
         .pipe(replace(
-            /<link rel="stylesheet" href="\/styles\/styles.css">/, () => {
-                const style = fs.readFileSync('dist/styles.css', 'utf8');
-                return '<style>' + style + '</style>';
+            /<link rel="stylesheet" href="([^"]+)"([^>]*)>/g,
+            (match, fileName, restAttributes) => {
+                const styles = fs.readFileSync(`dist${fileName}`);
+                return restAttributes
+                    ? `<style${restAttributes}>${styles}</style>`
+                    : `<style>${styles}</style>`;
             }
         ))
-        .pipe(gulp.dest('dist'));
-});
+        .pipe(dest('dist'));
+}
 
-// Scripts
-
-gulp.task('scripts:compress', () => {
-    return gulp.src('src/web_page/scripts/*.js')
+function compressScripts() {
+    return src('dist/scripts/**/*.js')
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/styles/:name.js'));
-});
+        .pipe(dest('dist/scripts/'));
+}
 
-gulp.task('scripts:inline', () => {
-    return gulp.src('dist/**/*.html')
+function inlineScripts() {
+    return src('dist/**/*.html')
         .pipe(replace(
-            /<script src="\/scripts\/(.+?).js"><\/script>/,
-            (match, p1) => {
-                const style = fs.readFileSync(`dist/${p1}.js`, 'utf8');
-                return `<script>${style}</script>`;
+            /<script src="([^"]+)"><\/script>/g,
+            (match, fileName) => {
+                const script = fs.readFileSync(`dist${fileName}`);
+                return `<script>${script}</script>`;
             }
         ))
-        .pipe(gulp.dest('dist'));
-});
+        .pipe(dest('dist'));
+}
 
-gulp.task('clean', () => {
+function clean() {
     return del([
-        // 'dist/styles',
-        'dist/*.css',
-        'dist/blocks',
-        'dist/blocks/light.css',
-        'dist/styles.css',
+        'dist/styles',
         'dist/scripts',
-        'dist/scripts.js'
-    ]);
-});
+    ])
+}
 
-// Build
+const styles = series(compressStyles, inlineStyles)
+const scripts = series(compressScripts, inlineScripts)
+const pack = series(styles, scripts, clean)
 
-gulp.task('build', gulp.series(
-    'styles:compress',
-    // 'styles:inline',
-    // 'scripts:compress',
-    // 'scripts:inline',
-    // 'clean'
-));
+exports.default = pack;

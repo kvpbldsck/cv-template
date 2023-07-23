@@ -6,13 +6,13 @@ const {
 } = require('./utils');
 
 module.exports = function(config) {
-    config.addPassthroughCopy('src/css');
-    config.addPassthroughCopy('src/fonts');
-    config.addPassthroughCopy('src/scripts');
-    config.addPassthroughCopy('src/styles');
-    config.addPassthroughCopy('src/images');
-    config.addPassthroughCopy('src/site.webmanifest');
-    config.addPassthroughCopy('src/cv.pdf');
+    config.addPassthroughCopy('src/web_page/css');
+    config.addPassthroughCopy('src/web_page/fonts');
+    config.addPassthroughCopy('src/web_page/scripts');
+    config.addPassthroughCopy('src/web_page/styles');
+    config.addPassthroughCopy('src/web_page/images');
+    config.addPassthroughCopy('src/web_page/site.webmanifest');
+    config.addPassthroughCopy('src/web_page/cv.pdf');
 
     config.addFilter('passedYears', getPassedYears);
     config.addFilter('workingPeriod', calcWorkingPeriod);
@@ -47,11 +47,11 @@ module.exports = function(config) {
 
     return {
         dir: {
-            input: 'src',
+            input: 'src/web_page',
             output: 'dist',
             includes: 'includes',
             layouts: 'layouts',
-            data: "data"
+            data: "../data"
         },
         dataTemplateEngine: 'njk',
         markdownTemplateEngine: 'njk',

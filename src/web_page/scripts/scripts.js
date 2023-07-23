@@ -32,7 +32,7 @@ function setupMobileNavbar() {
 }
 
 function initParticles() {
-    Particles.init({
+    const p = Particles.init({
         selector: '.particles-canvas',
         // color: ["#000000"],
         color: ["#f2bb05", "#e9ecef"],
@@ -76,10 +76,10 @@ function initParticles() {
             },
         ]
     });
+    p._resize();
 }
 
 function getMaxParticles() {
-    console.log(window.innerWidth, " ", window.innerHeight);
     return parseInt(300 * window.innerWidth * window.innerWidth * window.innerHeight * window.innerHeight / 1920 / 1920 / 919 / 919);
 }
 
